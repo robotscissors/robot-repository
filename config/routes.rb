@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  # Modified the original Devise to add in fullname. It requires this modification
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
+
+  get 'welcome/index'
+
+  get 'welcome/about'
+
+  root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
