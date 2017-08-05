@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # Modified the original Devise to add in fullname. It requires this modification
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
+
   get 'welcome/index'
 
   get 'welcome/about'
