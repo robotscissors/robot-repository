@@ -1,3 +1,25 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.standard-button{
+  width:110px;
+  margin-top: 30px;
+}
+.welcome-buttons {
+  margin: 0 auto;
+  text-align: center;
+}
+.page-spacer{
+  content: "";
+  clear: both;
+  height:100px;
+}
+
+.proof-point{
+  text-align:center;
+  p {
+    text-align:justify;
+    padding:15px 28px 20px 28px;
+
+  }
+}

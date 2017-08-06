@@ -1,16 +1,29 @@
-<h2>Resend confirmation instructions</h2>
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+  <div class="user-forms well well-lg">
+    <h2 class="form-title">Resend confirmation instructions</h2>
+    <p>Please use the form below to be resent your confirmation instructions.</p>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), :class => "textfield" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      <div class="actions buttons-centered">
+        <%= f.submit "Resend confirmation instructions", :class=>"btn btn-primary login"%>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+  </div>
+  <div class="col-md-6 col-md-offset-1">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pharetra est. Nulla sit amet consectetur odio. Ut sem neque, ornare in sodales a, eleifend et massa. Vestibulum dapibus feugiat nulla ut mollis. Quisque sodales nisl at felis efficitur ultrices. Maecenas sodales non metus id sagittis. Phasellus tincidunt, quam suscipit pellentesque posuere, massa ligula consequat neque, a fringilla turpis nisl ac sem. Donec nec purus vel velit vulputate congue ut non tortor. Nam aliquet interdum risus vitae condimentum. Nunc sodales molestie vehicula. Nulla aliquam congue ex, in varius ante fermentum a. Vestibulum et vestibulum elit. Phasellus id accumsan justo. Donec pellentesque placerat ex at pretium. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc consectetur velit vitae mattis lacinia.</p>
+
+  <p>Quisque vel velit euismod, efficitur ligula eu, dapibus risus. Sed lobortis aliquam justo, vitae gravida dui elementum non. Mauris pellentesque efficitur ante eget laoreet. Pellentesque sed lorem mauris. Nullam ultricies pellentesque quam sed pharetra. Cras eleifend libero ac tortor pellentesque ullamcorper. Vestibulum cursus orci vitae malesuada aliquam. Etiam sit amet condimentum risus, a varius metus. Pellentesque euismod dapibus velit, iaculis tincidunt neque lobortis a. Ut scelerisque nisi ac odio lacinia finibus.</p>
+  </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
