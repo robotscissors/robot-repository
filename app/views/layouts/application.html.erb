@@ -21,10 +21,10 @@
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">Page 1</a></li>
           <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
+          <li><a href="user_admin">Users</a></li>
         </ul>
         <ul class="navbar-nav-userstate navbar-right">
-          Signed in as: <%= current_user.fullname %> | <%= link_to 'Edit', edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          Signed in as: <%= link_to current_user.fullname, edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </ul>
         <% else %>
         <ul class="navbar-nav-userstate navbar-right">

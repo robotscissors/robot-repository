@@ -1,0 +1,33 @@
+<%= form_for [user], url: user_admin_path(@user) do |f| %>
+<% if user.errors.any? %>
+<div class="alert alert-danger">
+  <h4><%= pluralize(user.errors.count, "error") %>.</h4>
+  <ul>
+    <% user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_group_tag(user.errors[:fullname]) do %>
+  <strong> Full name</strong> <%= f.text_field :fullname, class: 'form-control', placeholder: "Enter full name" %>
+<% end %>
+
+<%= form_group_tag(user.errors[:email]) do %>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: 'form-control', placeholder: "E-Mail address" %>
+<% end %>
+
+<%= form_group_tag(user.errors[:email]) do %>
+Administrator:  <%= radio_button :user, :role, :admin %>  &nbsp&nbsp|&nbsp&nbsp  Standard User:  <%= radio_button :user, :role, :standard %>
+<% end %>
+
+<% if !(user.confirmed?) %>
+  <br />Confirm user manually? <%= f.check_box(:confirmed?, {}, 1, 0) %><br /><br />
+<% end %>
+
+<div class="form-group">
+<%= f.submit "Save", :class => 'btn btn-success' %>
+<%= link_to "Delete User", user_admin_path(user), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this USER?' } %>
+</div>
+<% end %>

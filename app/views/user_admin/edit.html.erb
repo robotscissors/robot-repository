@@ -1,0 +1,13 @@
+
+    <h2>Edit User: <%= @user.fullname %></h2>
+    <div class="after-h2-title"></div>
+    <div class="row">
+      <div class="col-md-4">
+      <%= form_for (@user), url: user_admin_path(@user) do |f| %>
+        <%= render partial: "form", locals: { user: @user } %>
+      <% end %>
+  </div>
+  <div class="col-md-offset-1 col-md-6">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus tellus, suscipit id hendrerit vitae, condimentum et ligula. Vestibulum cursus enim sed magna sollicitudin, laoreet vehicula nisi bibendum. Morbi quis aliquam est. Sed rhoncus massa id ante maximus tempor. Curabitur elit massa, egestas et est eu, eleifend fringilla leo. Cras varius lectus a nulla luctus venenatis. Etiam sit amet erat mattis purus dignissim pretium. Nunc mollis neque eu quam venenatis, sit amet lobortis mauris pharetra. Aenean fermentum elit erat, quis congue nisi euismod a. Sed id lacus ut nisl facilisis consectetur eget ut enim. Suspendisse non tellus diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis mauris mi, ut sagittis purus dignissim sit amet. Ut leo ex, gravida quis turpis eget, tincidunt fermentum dolor.
+</div>
+</div>
