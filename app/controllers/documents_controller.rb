@@ -12,6 +12,7 @@ class DocumentsController < ApplicationController
     @document.title = params[:document][:title]
     @document.description = params[:document][:description]
     @document.keywords = params[:document][:keywords]
+    @document.user_id = current_user.id
 
 
     if @document.save
@@ -29,8 +30,6 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = Document.find(params[:id])
-
-
   end
 
   def update
