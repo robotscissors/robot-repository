@@ -4,8 +4,8 @@
     <h1>About Robot Repository</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pharetra est. Nulla sit amet consectetur odio. Ut sem neque, ornare in sodales a, eleifend et massa. Vestibulum dapibus feugiat nulla ut mollis. Quisque sodales nisl at felis efficitur ultrices. Maecenas sodales non metus id sagittis. Phasellus tincidunt, quam suscipit pellentesque posuere, massa ligula consequat neque, a fringilla turpis nisl ac sem. Donec nec purus vel velit vulputate congue ut non tortor.</p>
     <div class="welcome-buttons">
-      <a class="btn btn-success standard-button" href="#" role="button">Login</a>
-      <a class="btn btn-primary standard-button" href="#" role="button">Register</a>
+      <%= link_to "Login", user_session_path, class: "btn btn-success standard-button" %>
+      <%= link_to "Register", new_user_registration_path, class: "btn btn-primary standard-button" %>
     </div>
   </div>
   </div>

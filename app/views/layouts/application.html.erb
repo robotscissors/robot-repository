@@ -53,8 +53,9 @@
       <p class="navbar-text pull-left">© 2017 - Site Built By RobotScissors
            <a href="#" target="_blank" >This is some information</a>
       </p>
-
-      <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a>
+      <% if user_signed_in? %>
+        <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a>
+      <% end %>
     </div>
 
 </body>
