@@ -29,7 +29,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
   gem 'faker'
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-byebug'
 end

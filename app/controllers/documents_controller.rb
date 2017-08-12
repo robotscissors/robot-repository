@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-      @documents = Document.all.order(created_at: :desc)
+    @documents = Document.all.order(created_at: :desc)
   end
 
   def new
@@ -8,14 +8,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new
-    @document.title = params[:document][:title]
-    @document.description = params[:document][:description]
-    @document.keywords = params[:document][:keywords]
-    @document.user_id = current_user.id
-
-
-    if @document.save
+    if current_user.documents.build(document_params).save
       flash[:notice] = "Document Uploaded!"
       redirect_to documents_path
     else
@@ -34,9 +27,7 @@ class DocumentsController < ApplicationController
 
   def update
     @document = Document.find(params[:id])
-    @document.assign_attributes(document_params)
-
-    if @document.save
+    if @document.update(document_params)
       flash[:notice] = "Document Uploaded!"
       redirect_to @document
     else
@@ -47,7 +38,6 @@ class DocumentsController < ApplicationController
 
   def destroy
     @document = Document.find(params[:id])
-
     if @document.destroy
       flash[:notice] = "Document has been deleted!"
       redirect_to documents_path
@@ -55,7 +45,6 @@ class DocumentsController < ApplicationController
       flash[:notice] = "This document couldn't be deleted."
       redirect_to @document
     end
-
   end
 
 

@@ -3,5 +3,4 @@ class Document < ActiveRecord::Base
   validates :description, length: {minimum: 20}, presence: true
   validates :user_id, presence: true
   belongs_to :user
-
 end
