@@ -47,12 +47,9 @@ class DocumentsController < ApplicationController
     end
   end
 
-
-
   private
   # Using a private method to encapsulate the permissible parameters
   def document_params
     params.require(:document).permit(:title, :description, :keywords)
   end
-
 end
