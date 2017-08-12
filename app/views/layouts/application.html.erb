@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DocRepository</title>
+  <title>Document Repository</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,19 +12,18 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Document Repository</a>
+        <%= link_to "Document Repository", root_path, class: "navbar-brand" %>
       </div>
 
         <% if user_signed_in? %>
         <ul class="nav navbar-nav">
 
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
+          <li><%= link_to "Document Library", documents_path %>
           <li><a href="#">Page 2</a></li>
           <li><a href="user_admin">Users</a></li>
         </ul>
         <ul class="navbar-nav-userstate navbar-right">
-          Signed in as: <%= link_to current_user.fullname, edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          <%= link_to current_user.fullname, edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </ul>
         <% else %>
         <ul class="navbar-nav-userstate navbar-right">
@@ -54,7 +53,9 @@
       <p class="navbar-text pull-left">© 2017 - Site Built By RobotScissors
            <a href="#" target="_blank" >This is some information</a>
       </p>
-      <a href="#" class="navbar-btn btn-danger btn pull-right"><span class="glyphicon glyphicon-star"></span>  Some Information</a>
+      <% if user_signed_in? %>
+        <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a>
+      <% end %>
     </div>
 
 </body>

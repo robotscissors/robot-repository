@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+
+
+
   # Modified the original Devise to add in fullname. It requires this modification
   devise_for :users, :controllers => { registrations: 'registrations' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources :user_admin
 
-  get 'welcome/index'
+  authenticated :user do
+    root 'welcome#index', as: :authenticated_root
+  end
+  resources :user_admin
+  resources :documents
 
   get 'welcome/about'
-
-
-  root 'welcome#index'
+  root 'welcome#about'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

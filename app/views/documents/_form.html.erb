@@ -1,0 +1,26 @@
+<%= form_for [document] do |f| %>
+<% if document.errors.any? %>
+<div class="alert alert-danger">
+  <h4><%= pluralize(document.errors.count, "error") %>.</h4>
+  <ul>
+    <% document.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_group_tag(document.errors[:title]) do %>
+  <strong> Title of Document </strong> <%= f.text_field :title, class: 'form-control', placeholder: "Enter document title (min. 5 characters)", autofocus: true %>
+<% end %>
+<%= form_group_tag(document.errors[:description]) do %>
+  <strong> Description </strong> <%= f.text_area :description, cols: 30, rows: 5, class: 'form-control', placeholder: "Enter document title (min. 20 characters)" %>
+<% end %>
+<%= form_group_tag(document.errors[:keywords]) do %>
+  <strong> Any Keywords That Apply </strong>&nbsp&nbsp&nbsp<small>(separate keywords by a space)</small><%= f.text_area :keywords, cols: 30, rows: 5,class: 'form-control', placeholder: "(optional)" %>
+<% end %>
+
+
+<div class="form-group">
+  <%= f.submit "Save Document", :class => 'btn btn-success' %>
+</div>
+<% end %>

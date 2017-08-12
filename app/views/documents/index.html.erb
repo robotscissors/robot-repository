@@ -1,0 +1,21 @@
+<div class="container">
+  <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a>
+  <h2>Library</h2>
+  <% if @documents.count > 0 %>
+    <table class = "table table-striped padding-before-table margin-before-50">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created</th>
+      </tr>
+      <% @documents.each do |document| %>
+        <tr>
+          <td><%= link_to truncate(document.title, length: 40, separator: ' '), document %></td>
+          <td><%= truncate(document.description, length: 50, separator: ' ') %></td>
+          <td><%= document.created_at.localtime %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <h4>There are no documents in the respository.</h4>
+  <% end %>

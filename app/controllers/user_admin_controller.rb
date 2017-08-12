@@ -30,7 +30,7 @@ class UserAdminController < ApplicationController
           flash[:notice] = "User #{@user.fullname} was updated."
           redirect_to action: "index"
         else
-          flash.now[:alert] = "Error saving User. Please try again."
+          flash[:alert] = "Error saving User. Please try again."
           render :edit
         end
   end

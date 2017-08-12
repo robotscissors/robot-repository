@@ -26,12 +26,16 @@
   background-repeat: no-repeat;
   background-position: left 10px center;
   background-size: contain;
+
 }
 .navbar-nav {
-  margin-top: 10px;
+
+  li a {
+        padding-top: 32px;
+  }
 }
 .navbar-nav-userstate {
-    margin-top: 25px;
+    margin-top: 32px;
     margin-right: 10px;
 }
 
@@ -122,4 +126,7 @@
 }
 .after-h2-title {
   margin-top:50px;
+}
+.margin-before-50 {
+  margin-top: 50px;
 }

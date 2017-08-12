@@ -33,5 +33,14 @@ require 'random_data'
 end
 users = User.all
 
+10.times do
+  @title = Faker::Lorem.sentence(3, false, 4)
+  @description = Faker::Lorem.sentence(10, false, 12)
+  @keywords = Faker::Lorem.sentence(3, false, 8)
+  @document = Document.new(title: @title, description: @description, keywords: @keywords, user: users.sample)
+  @document.save!
+end
+
 puts "Seed finished"
 puts "#{User.count} Users created"
+puts "#{Document.count} Documents created"
