@@ -1,4 +1,4 @@
-<%= form_for [document] do |f| %>
+<%= form_for document, html: { multipart: true }  do |f| %>
 <% if document.errors.any? %>
 <div class="alert alert-danger">
   <h4><%= pluralize(document.errors.count, "error") %>.</h4>
@@ -19,6 +19,8 @@
   <strong> Any Keywords That Apply </strong>&nbsp&nbsp&nbsp<small>(separate keywords by a space)</small><%= f.text_area :keywords, cols: 30, rows: 5,class: 'form-control', placeholder: "(optional)" %>
 <% end %>
 
+Please attach file:
+<%= f.file_field :document_file %>
 
 <div class="form-group">
   <%= f.submit "Save Document", :class => 'btn btn-success' %>

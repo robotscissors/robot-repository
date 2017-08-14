@@ -22,6 +22,8 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'devise'
 gem 'pundit'
+gem 'aws-sdk', '>= 2.0.34'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug'

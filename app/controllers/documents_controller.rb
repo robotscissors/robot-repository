@@ -5,14 +5,19 @@ class DocumentsController < ApplicationController
 
   def new
     @document = Document.new
+    puts "bucket: #{ENV['AWS_S3_BUCKET_NAME']}"
   end
 
   def create
-    if current_user.documents.build(document_params).save
+    @document = current_user.documents.build(document_params)
+
+    if @document.save
       flash[:notice] = "Document Uploaded!"
+      puts "Success"
       redirect_to documents_path
     else
       flash[:alert] = "There was an error saving the document. Please try again."
+      puts "There is an error"
       render :new
     end
   end
@@ -50,6 +55,6 @@ class DocumentsController < ApplicationController
   private
   # Using a private method to encapsulate the permissible parameters
   def document_params
-    params.require(:document).permit(:title, :description, :keywords)
+    params.require(:document).permit(:title, :description, :keywords, :document_file)
   end
 end
