@@ -4,7 +4,9 @@
     <p><%= @document.description %></p>
     <p><strong>Keywords:</strong><br />        <small><%= @document.keywords %></small></p>
     <br /><br />
-    <small><%= "Original: #{@document.created_at.localtime}"%><br /><%="Modified: #{@document.updated_at.localtime}" %></small>
+    <small><%= "Original: #{@document.created_at.localtime}"%><br /><%="Modified: #{@document.updated_at.localtime}" %></small><br />
+    <small>File Uploaded: <%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/document/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %><br />
+    Date uploaded: <%= @document.document_file_updated_at.localtime %>
     <div class="pull-right margin-before-50">
          <%= link_to "Edit Document", edit_document_path, class: 'btn btn-success' %>
          <%= if (current_user.admin? || (current_user.id === @document.user_id))
@@ -13,6 +15,6 @@
     </div>
   </div>
   <div class="col-md-offset-1 col-md-5 well well-lg">
-    This a preview of the document if possible.
+    <%= image_tag @document.document_file.url(:thumb) %>
   </div>
 </div>

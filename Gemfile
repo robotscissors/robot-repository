@@ -24,6 +24,7 @@ gem 'devise'
 gem 'pundit'
 gem 'aws-sdk', '>= 2.0.34'
 gem 'paperclip'
+gem 'dropzonejs-rails'
 
 group :development, :test do
   gem 'byebug'
