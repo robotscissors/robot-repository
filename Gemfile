@@ -25,6 +25,8 @@ gem 'pundit'
 gem 'aws-sdk', '>= 2.0.34'
 gem 'paperclip'
 gem 'dropzonejs-rails'
+gem 'paperclip-ghostscript'
+gem 'cocaine'
 
 group :development, :test do
   gem 'byebug'

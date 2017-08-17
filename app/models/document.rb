@@ -5,7 +5,9 @@ class Document < ActiveRecord::Base
   #validates :document_file, presence: true
   belongs_to :user
 
-  has_attached_file :document_file, :path => "/documents/:id/:filename", :url => "/documents/preview/:filename", :style => { :thumb => ["300x400>", :jpg] }
+  #has_attached_file :document_file, :path => "/documents/:id/:style/:filename", :url => "/documents/preview/:filename", :styles => { :thumb => ["300x400>", :jpg] }, :processors => [:thumbnail]
+  has_attached_file :document_file, :path => "/documents/:id/:filename"
   validates_attachment :document_file, content_type: { content_type: ['application/msword', 'application/pdf','application/vnd.openxmlformats-officedocument.wordprocessingml.document'] }
+  #validates_attachment_content_type :document_file, content_type: /\Aimage\/.*\z/
 
 end

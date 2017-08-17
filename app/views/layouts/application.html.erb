@@ -54,7 +54,9 @@
            <a href="#" target="_blank" >This is some information</a>
       </p>
       <% if user_signed_in? %>
-        <%= link_to ' Upload New Document  ', new_document_path, class: "navbar-btn btn-success btn pull-right" %>
+        <%= link_to new_document_path, class: "navbar-btn btn-success btn pull-right" do %>
+          <span class="glyphicon glyphicon-star"></span> Upload New Document
+        <% end %>
       <% end %>
     </div>
 
