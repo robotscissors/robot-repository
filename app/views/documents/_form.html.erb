@@ -23,7 +23,10 @@
 <div class="form-group file-upload">
   Please upload file:<br />
   <% if @document.document_file.exists? %>
-    File exists - <small><%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/document/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %><br />
+    A document already exists - <small><%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/document/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %></small><br />
+    If you want to replace it, please upload a new document below: <br />
+  <% else %>
+    Please upload file:<br />
   <% end %>
   <%= f.file_field :document_file %>
 </div>

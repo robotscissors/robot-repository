@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
     @document = current_user.documents.build(document_params)
 
     if @document.save
-      flash[:notice] = "Document Uploaded!"
+      flash[:notice] = "Document upload is complete!"
       puts "Success"
       redirect_to documents_path
     else

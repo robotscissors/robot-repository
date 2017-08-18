@@ -27,6 +27,8 @@ gem 'paperclip'
 gem 'dropzonejs-rails'
 gem 'paperclip-ghostscript'
 gem 'cocaine'
+gem 'delayed_job_active_record'
+
 
 group :development, :test do
   gem 'byebug'
