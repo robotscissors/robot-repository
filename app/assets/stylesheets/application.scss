@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require dropzone/dropzone
  *= require_self
  */
 @import "bootstrap-sprockets";
@@ -129,4 +130,8 @@
 }
 .margin-before-50 {
   margin-top: 50px;
+}
+
+.file-upload {
+  margin: 20px 0 20px 2px;
 }

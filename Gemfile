@@ -22,6 +22,13 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'devise'
 gem 'pundit'
+gem 'aws-sdk', '>= 2.0.34'
+gem 'paperclip'
+gem 'dropzonejs-rails'
+gem 'paperclip-ghostscript'
+gem 'cocaine'
+gem 'delayed_job_active_record'
+
 
 group :development, :test do
   gem 'byebug'
@@ -29,7 +36,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
   gem 'faker'
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-byebug'
 end

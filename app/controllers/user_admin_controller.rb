@@ -25,27 +25,26 @@ class UserAdminController < ApplicationController
       @user.updated_at = Date.new
     end
 
-
     if @user.save
-          flash[:notice] = "User #{@user.fullname} was updated."
-          redirect_to action: "index"
-        else
-          flash[:alert] = "Error saving User. Please try again."
-          render :edit
-        end
+      flash[:notice] = "User #{@user.fullname} was updated."
+      redirect_to action: "index"
+    else
+      flash[:alert] = "Error saving User. Please try again."
+      render :edit
+    end
   end
 
   def destroy
-      @user = User.find(params[:id])
-      if @user.email === current_user.email
-        flash[:alert] = "You can't delete yourself!!"
-        redirect_to action: "index"
-      elsif @user.destroy
-           flash[:notice] = "\"#{@user.fullname}\" was deleted successfully."
-           redirect_to action: "index"
-      else
-           flash[:alert] = "There was an error deleting the user."
-           redirect_to action: "index"
-      end
+    @user = User.find(params[:id])
+    if @user.email === current_user.email
+      flash[:alert] = "You can't delete yourself!!"
+      redirect_to action: "index"
+    elsif @user.destroy
+         flash[:notice] = "\"#{@user.fullname}\" was deleted successfully."
+         redirect_to action: "index"
+    else
+         flash[:alert] = "There was an error deleting the user."
+         redirect_to action: "index"
+    end
   end
 end
