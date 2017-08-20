@@ -26,7 +26,7 @@
   <%= form_group_tag(document.errors[:document_file]) do %>
   <div class="form-group file-upload">
     <% if @document.document_file.exists? %>
-      <strong>A document already exists: </strong><br /><small><%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/document/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %></small><br />
+      <strong>A document already exists: </strong><br /><small><%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/documents/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %></small><br />
       If you want to replace it, please upload a new document below: <br /><br />
     <% else %>
       Please upload file:<br /><br />
