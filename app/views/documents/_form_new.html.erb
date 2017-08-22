@@ -1,41 +1,43 @@
 <%= form_for document, html: { multipart: true }  do |f| %>
-<div class="col-md-5 jumbotron">
-  <p>Some quick form instructions</p>
-  <% if document.errors.any? %>
-  <div class="alert alert-danger">
-    <h4><%= pluralize(document.errors.count, "error") %>.</h4>
-    <ul>
-      <% document.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<div class="jumbotron col-md-12">
+  <div class="col-md-12">
+    <p class="form-paragraph">Use this form to upload the document and provide any meta data that will increase the searchability of this docment.</p>
+
   </div>
-  <% end %>
-  <%= form_group_tag(document.errors[:title]) do %>
-    <strong> Title of Document </strong> <%= f.text_field :title, class: 'form-control', placeholder: "Enter document title (min. 5 characters)", autofocus: true %>
-  <% end %>
-  <%= form_group_tag(document.errors[:description]) do %>
-    <strong> Description </strong> <%= f.text_area :description, cols: 30, rows: 5, class: 'form-control', placeholder: "Enter document title (min. 20 characters)" %>
-  <% end %>
-  <%= form_group_tag(document.errors[:keywords]) do %>
-    <strong> Any Keywords That Apply<br /></strong>&nbsp&nbsp&nbsp<small>(separate keywords by a space)</small><%= f.text_area :keywords, cols: 30, rows: 5,class: 'form-control', placeholder: "(optional)" %>
-  <% end %>
-</div>
-<div class="col-md-offset-2 col-md-5 jumbotron">
-  <p>Please upload the document that will be indexed.</p>
-  <%= form_group_tag(document.errors[:document_file]) do %>
-  <div class="form-group file-upload">
-    <% if @document.document_file.exists? %>
-      <strong>A document already exists: </strong><br /><small><%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/documents/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %></small><br />
-      If you want to replace it, please upload a new document below: <br /><br />
-    <% else %>
-      Please upload file:<br /><br />
+  <div class="col-md-5">
+    <% if document.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(document.errors.count, "error") %>.</h4>
+      <ul>
+        <% document.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
-    <%= f.file_field :document_file %>
+    <%= form_group_tag(document.errors[:title]) do %>
+      <strong> Title of Document </strong> <%= f.text_field :title, class: 'form-control', placeholder: "Enter document title (min. 5 characters)", autofocus: true %>
+    <% end %>
+    <%= form_group_tag(document.errors[:description]) do %>
+      <strong> Description </strong> <%= f.text_area :description, cols: 30, rows: 5, class: 'form-control', placeholder: "Enter document title (min. 20 characters)" %>
+    <% end %>
   </div>
-  <% end %>
-  <div class="form-group">
-    <%= f.submit "Save Document", :class => 'btn btn-success' %>
+  <div class="col-md-offset-2 col-md-5">
+    <%= form_group_tag(document.errors[:keywords]) do %>
+      <strong> Any Keywords That Apply (campaign name, etc.)<br /></strong><small>(separate keywords by a space)</small><%= f.text_area :keywords, cols: 30, rows: 7,class: 'form-control', placeholder: "(optional)" %>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <br />
+    <p>Please upload the document that will be indexed.</p>
+    <%= form_group_tag(document.errors[:document_file]) do %>
+    <div class="form-group file-upload">
+      <%= f.file_field :document_file %>
+    </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.submit "Save Document", :class => 'btn btn-success' %>
+    </div>
   </div>
 </div>
 <% end %>

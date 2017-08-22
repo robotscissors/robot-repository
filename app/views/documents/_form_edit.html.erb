@@ -1,35 +1,46 @@
 <%= form_for document, html: { multipart: true }  do |f| %>
-<div class="col-md-5 jumbotron">
-  <p>Some quick form instructions</p>
-  <% if document.errors.any? %>
-  <div class="alert alert-danger">
-    <h4><%= pluralize(document.errors.count, "error") %>.</h4>
-    <ul>
-      <% document.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<div class="jumbotron col-md-12">
+  <div class="col-md-12">
+    <p class="form-paragraph">You can edit the meta data using the form below.</p>
+
   </div>
-  <% end %>
-  <%= form_group_tag(document.errors[:title]) do %>
-    <strong> Title of Document </strong> <%= f.text_field :title, class: 'form-control', placeholder: "Enter document title (min. 5 characters)", autofocus: true %>
-  <% end %>
-  <%= form_group_tag(document.errors[:description]) do %>
-    <strong> Description </strong> <%= f.text_area :description, cols: 30, rows: 5, class: 'form-control', placeholder: "Enter document title (min. 20 characters)" %>
-  <% end %>
-  <%= form_group_tag(document.errors[:keywords]) do %>
-    <strong> Any Keywords That Apply<br /></strong>&nbsp&nbsp&nbsp<small>(separate keywords by a space)</small><%= f.text_area :keywords, cols: 30, rows: 5,class: 'form-control', placeholder: "(optional)" %>
-  <% end %>
-  <div class="form-group">
-    <%= f.submit "Save Document", :class => 'btn btn-success' %>
+  <div class="col-md-5">
+    <% if document.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(document.errors.count, "error") %>.</h4>
+      <ul>
+        <% document.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= form_group_tag(document.errors[:title]) do %>
+      <strong> Title of Document </strong> <%= f.text_field :title, class: 'form-control', placeholder: "Enter document title (min. 5 characters)", autofocus: true %>
+    <% end %>
+    <%= form_group_tag(document.errors[:description]) do %>
+      <strong> Description </strong> <%= f.text_area :description, cols: 30, rows: 5, class: 'form-control', placeholder: "Enter document title (min. 20 characters)" %>
+    <% end %>
+
   </div>
-</div>
-<div class="col-md-offset-2 col-md-5 well well-lg">
-  <h2>Document Information</h2>
-  <small><%= "Original: #{@document.created_at.localtime}"%><br /><%="Modified: #{@document.updated_at.localtime}" %></small><br />
-  <small>File Uploaded: <%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/documents/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %><br />
-  Date uploaded: <%= @document.document_file_updated_at.localtime %>
-  <h3>Preview</h3>
-  <p><%= "#{truncate(@document.file_full_text, :length => 1000)}" %></p>
+  <div class="col-md-offset-2 col-md-5">
+    <%= form_group_tag(document.errors[:keywords]) do %>
+      <strong> Any Keywords That Apply (campaign name, etc.)<br /></strong><small>(separate keywords by a space)</small><%= f.text_area :keywords, cols: 30, rows: 7,class: 'form-control', placeholder: "(optional)" %>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.submit "Update Document Information", :class => 'btn btn-success' %>
+    </div>
+    <br />
+    <hr class="data-separator" />
+    <h3>Document Statistics</h3>
+    <small>File Uploaded: <%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/documents/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %><br />
+    Date uploaded: <%= @document.document_file_updated_at.localtime %>
+    <br />
+    <h3>Preview</h3>
+    <p class="preview-text"><%= "#{truncate(@document.file_full_text, :length => 1000)}" %></p>
+
+  </div>
 </div>
 <% end %>
