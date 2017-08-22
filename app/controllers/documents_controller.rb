@@ -10,6 +10,7 @@ class DocumentsController < ApplicationController
 
   def create
     #call class
+
     @document = current_user.documents.build(document_params)
 
     if @document.save

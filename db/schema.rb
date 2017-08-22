@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818034106) do
+ActiveRecord::Schema.define(version: 20170819212947) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170818034106) do
     t.string   "document_file_content_type"
     t.integer  "document_file_file_size"
     t.datetime "document_file_updated_at"
+    t.text     "file_full_text"
   end
 
   add_index "documents", ["user_id"], name: "index_documents_on_user_id"
