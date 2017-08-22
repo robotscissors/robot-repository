@@ -18,6 +18,7 @@
     <small><%= "Original: #{@document.created_at.localtime}"%><br /><%="Modified: #{@document.updated_at.localtime}" %></small><br />
     <small>File Uploaded: <%= link_to @document.document_file_file_name, "https://s3.amazonaws.com/document-repo-bucket/documents/#{@document.id}/#{@document.document_file_file_name}", target: :_blank %><br />
     Date uploaded: <%= @document.document_file_updated_at.localtime %>
-    <%= image_tag @document.document_file.url(:thumb) %>
+    <h3>Preview</h3>
+    <p><%= "#{truncate(@document.file_full_text, :length => 1000)}" %></p>
   </div>
 </div>
