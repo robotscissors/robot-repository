@@ -17,6 +17,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  font-family: "proxima-nova","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif;
+  background-color: #191C22;
+  color: #EAEAEA;
+}
+h1,h2,h3 {
+  color: #FFD94C;
+}
+
+p {
+  color: #EAEAEA;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #CCCCCC;
+  &:hover {
+    color: #FFD94C;
+  }
+}
+.navbar-default .navbar-brand {
+  color: #CCCCCC;
+  &:hover {
+    color: #FFFFFF;
+  }
+}
+
+a {
+  color: #CCCCCC;
+  &:hover {
+    color: #FFD94C;
+  }
+}
 .navbar-brand {
   font-size: 40px;
   margin-top: 15px;
@@ -27,18 +58,51 @@
   background-repeat: no-repeat;
   background-position: left 10px center;
   background-size: contain;
-
 }
-.navbar-nav {
+.navbar-brand a{
+  color:#FFD94C;
+}
 
+.navbar-nav, .navbar-default {
+  background-color: #282E38;
+  border-color: #282E38;
   li a {
         padding-top: 32px;
+        color: #FFFFFF;
   }
 }
+.navbar-default .navbar-text {
+  color:#ffffff;
+  a {
+    color:#FFD94C;
+  }
+
+}
+
+.navbar-header {
+  color:#FFD94C;
+}
+
 .navbar-nav-userstate {
     margin-top: 32px;
     margin-right: 10px;
 }
+
+.jumbotron, .well {
+  background-color: #282E38;
+  color:#000000;
+  p, small {
+    color:#ffffff;
+  }
+  .form-group {
+    color:#ffffff;
+  }
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #000000;
+}
+
 
 //buttons
 .login {
@@ -113,7 +177,8 @@
 }
 
 .confirmed {
-  background-color: #20FF00;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
   color: #000000;
   text-align: center;
 }
