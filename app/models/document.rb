@@ -4,6 +4,9 @@ class Document < ActiveRecord::Base
   validates :user_id, presence: true
   validates :document_file, presence: true
   belongs_to :user
+
+  searchkick
+
   # validates_attachment :document_file, content_type: { content_type: ['application/msword', 'application/pdf','application/vnd.openxmlformats-officedocument.wordprocessingml.document'] }
 
   has_attached_file :document_file, :path => "/documents/:id/:filename", :preserve_files => "true",

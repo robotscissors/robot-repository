@@ -31,6 +31,7 @@ gem 'dropzonejs-rails'
 gem 'paperclip-ghostscript'
 gem 'cocaine','0.5.3'
 gem 'delayed_job_active_record'
+gem 'searchkick'
 
 
 group :development, :test do
