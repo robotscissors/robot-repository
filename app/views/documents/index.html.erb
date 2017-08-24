@@ -9,11 +9,12 @@
   <h2>Library</h2>
   <% if @documents.count > 0 %>
     <span class="pull-right"><%= "#{@results} Results Found." %></span>
+    <span class="pull-right"></span>
     <table class = "table table-striped padding-before-table margin-before-50">
       <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Created</th>
+        <th class="col-title">Title</th>
+        <th class="col-description">Description</th>
+        <th class="col-created">Created</th>
       </tr>
       <% @documents.each do |document| %>
         <tr>

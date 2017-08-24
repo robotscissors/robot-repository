@@ -32,7 +32,7 @@ gem 'paperclip-ghostscript'
 gem 'cocaine','0.5.3'
 gem 'delayed_job_active_record'
 gem 'searchkick'
-
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
