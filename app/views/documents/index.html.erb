@@ -1,21 +1,32 @@
 <div class="container">
-  <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a>
+  <!-- <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a> -->
+  <div class="pull-right">
+    <%= form_tag(documents_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], autocomplete: :off, placeholder: "Search Respository", :class => "search", :autofocus => true %>
+      <%= submit_tag "Search", :name => nil, :class => 'btn btn-success' %>
+    <% end %>
+  </div>
   <h2>Library</h2>
   <% if @documents.count > 0 %>
+    <span class="pull-right"><%= "#{@results} Results Found." %></span>
+    <span class="pull-right"></span>
     <table class = "table table-striped padding-before-table margin-before-50">
       <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Created</th>
+        <th class="col-title">Title</th>
+        <th class="col-description">Description</th>
+        <th class="col-created">Created</th>
       </tr>
       <% @documents.each do |document| %>
         <tr>
           <td><%= link_to truncate(document.title, length: 40, separator: ' '), document %></td>
-          <td><%= truncate(document.description, length: 50, separator: ' ') %></td>
+          <td>
+            <%= truncate(document.description, length: 50, separator: '... ') %><br />
+            <small><%= truncate(document.file_full_text, length: 200, separator: '...') %></small>
+          </td>
           <td><%= document.created_at.localtime %></td>
         </tr>
       <% end %>
     </table>
   <% else %>
-    <h4>There are no documents in the respository.</h4>
+    <h4>There are no results found.</h4>
   <% end %>

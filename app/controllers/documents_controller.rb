@@ -1,6 +1,14 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.all.order(created_at: :desc)
+    search_query = params[:search].present? ? params[:search] : nil
+    if search_query
+      #@documents = Document.search(search_query).page(params[:page])
+      @documents = Document.search(search_query)
+    else
+      #@documents = Document.all.order(created_at: :desc).page(params[:page]).per(10)
+      @documents = Document.all.order(created_at: :desc)
+    end
+    @results = @documents.count
   end
 
   def new
@@ -14,6 +22,7 @@ class DocumentsController < ApplicationController
     @document = current_user.documents.build(document_params)
 
     if @document.save
+      #S3Cleanup.execute(@document)
       flash[:notice] = "Document upload is complete!"
       puts "Success"
       redirect_to documents_path
@@ -52,6 +61,15 @@ class DocumentsController < ApplicationController
       flash[:notice] = "This document couldn't be deleted."
       redirect_to @document
     end
+  end
+
+  def autocomplete
+    render json: Document.search(params[:query], {
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:title)
   end
 
   private

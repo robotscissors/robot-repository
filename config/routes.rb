@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     root 'welcome#index', as: :authenticated_root
   end
   resources :user_admin
-  resources :documents
-  
+  resources :documents 
+
   get 'welcome/about'
   root 'welcome#about'
   # The priority is based upon order of creation: first created -> highest priority.

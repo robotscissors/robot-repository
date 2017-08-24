@@ -18,9 +18,9 @@
         <% if user_signed_in? %>
         <ul class="nav navbar-nav">
 
-          <li><%= link_to "Document Library", documents_path %>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="user_admin">Users</a></li>
+          <li><%= link_to "Library", documents_path %></li>
+          <li><%= link_to "Document Upload", new_document_path %></li>
+          <li><%= link_to "User Admin", user_admin_index_path %></li>
         </ul>
         <ul class="navbar-nav-userstate navbar-right">
           <%= link_to current_user.fullname, edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -34,6 +34,7 @@
 
     </div>
   </nav>
+  
   <div class="container">
     <% if flash[:notice] %>
         <div class="alert alert-success">
