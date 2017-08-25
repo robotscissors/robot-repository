@@ -12,18 +12,13 @@
     <span class="pull-right"></span>
     <table class = "table table-striped padding-before-table margin-before-50">
       <tr>
-        <th class="col-title">Title</th>
-        <th class="col-description">Description</th>
-        <th class="col-created">Created</th>
+        <th colspan="3">List of Documents</th>
       </tr>
       <% @documents.each do |document| %>
         <tr>
-          <td><%= link_to truncate(document.title, length: 40, separator: ' '), document %></td>
-          <td>
-            <%= truncate(document.description, length: 50, separator: '... ') %><br />
-            <small><%= truncate(document.file_full_text, length: 200, separator: '...') %></small>
+          <td colspan="3"><span class="upload-main-info"><strong><%= link_to truncate(document.title, length: 40, separator: ' ... '), document %></strong> | <%= truncate(document.description, length: 50, separator: ' ... ') %> <span class="upload-info">[ <%= document.created_at.localtime.strftime('%c') %> ]</span></span><br />
+            <small><%= link_to truncate(document.file_full_text, length: 550, separator: ' ... more '), document %></small>
           </td>
-          <td><%= document.created_at.localtime %></td>
         </tr>
       <% end %>
     </table>

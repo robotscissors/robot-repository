@@ -31,6 +31,8 @@ p {
   color: #EAEAEA;
 }
 
+
+
 .navbar-default .navbar-nav > li > a {
   color: #CCCCCC;
   &:hover {
@@ -149,10 +151,10 @@ a {
   p, small {
     color:#ffffff;
   }
-  input {
+  .form-group input {
     color:#000000;
   }
-  .form-group {
+  .form-group .btn, input[type="file"]{
     color:#ffffff;
   }
 }
@@ -285,6 +287,7 @@ a {
 
 .file-upload {
   margin: 20px 0 20px 2px;
+  color: #ffffff;
 }
 
 .search {
