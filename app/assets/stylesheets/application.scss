@@ -90,9 +90,12 @@ a {
 
 .jumbotron, .well {
   background-color: #282E38;
-  color:#000000;
+  color:#FFFFFF;
   p, small {
     color:#ffffff;
+  }
+  input {
+    color:#000000;
   }
   .form-group {
     color:#ffffff;
