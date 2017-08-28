@@ -143,6 +143,9 @@ a {
   .navbar-brand {
       font-size: 30px;
   }
+  .page-title {
+    text-align: center;
+  }
 }
 
 .jumbotron, .well {
@@ -208,11 +211,17 @@ a {
 .user-forms {
   width:350px;
   margin:10px auto;
+  .textfield {
+    color: #000000;
+  }
 }
 
 .user-forms2 {
   width:400px;
   margin:10px auto;
+  .textfield {
+    color: #000000;
+  }
 }
 
 .form-instructions {
@@ -257,6 +266,7 @@ a {
 
 .textfield {
   margin: 0px 15px 0px 10px;
+  color:#00000;
 }
 
 .remember {
@@ -288,6 +298,9 @@ a {
   margin-top: 50px;
 }
 
+.margin-after-50 {
+  margin-bottom: 50px;
+}
 .file-upload {
   margin: 20px 0 20px 2px;
   color: #ffffff;

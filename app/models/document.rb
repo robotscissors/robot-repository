@@ -4,10 +4,7 @@ class Document < ActiveRecord::Base
   validates :user_id, presence: true
   #validates :document_file, presence: true
   belongs_to :user
-
   searchkick
-
-
 
   has_attached_file :document_file, :path => "/documents/:id/:filename", :preserve_files => "true",
                     :styles => {

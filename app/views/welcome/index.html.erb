@@ -1,2 +1,69 @@
-<h1>DASHBOARD</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container margin-after-50">
+  <h2 class="page-title">DASHBOARD</h2>
+  <div class="row">
+    <div class="col-md-3 user-image">
+      <img src="/assets/user-image.png">
+    </div>
+    <div class="col-md-3 user-info">
+      <div class="dashboard-user"><%= current_user.fullname %></div>
+      <%= current_user.email %> <br />
+      Last login: <%= current_user.last_sign_in_at.localtime.strftime('%c') %><br />
+      View last document uploaded: <%= link_to "click here", document_path(@last_document) %><br />
+      <br />
+      <%= link_to "Edit Your Profile", edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    </div>
+    <div class="col-md-offset-1 col-md-2">
+      <div class="total-chip"><span class="dashboard-number"><%="#{@total_documents}" %></span><br />ARCHIVED DOCUMENTS</div>
+    </div>
+    <div class="col-md-2">
+      <div class="user-total-chip"><span class="dashboard-number"><%="#{@total_documents_by_user}" %></span><br />UPLOADS BY YOU</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <h3 class="top-contributors-title">ACTIVITY REPORT</h3>
+      <table class="table">
+        <tr>
+          <th class="activity-title">
+            ACTIVITY REPORT
+          </th>
+          <th class="activity-user">
+            USER
+          </th>
+        </tr>
+        <% @last_5_uploaded_documents.each do |last_5| %>
+          <tr>
+            <td>
+              <%= link_to last_5.title, document_path(last_5) %>
+            </td>
+            <td>
+              <%= last_5.user['fullname'] %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-offset-1 col-md-4">
+      <h3 class="top-contributors-title">TOP 5 CONTRIBUTERS</h3>
+      <table class="table">
+        <tr>
+          <th class="activity-title">
+            User
+          </th>
+          <th class="activity-user">
+            Uploads
+          </th>
+        </tr>
+        <% @top_5_contributors.each do |top_5| %>
+        <tr>
+          <td>
+            <%= top_5.user['fullname'] %>
+          </td>
+          <td>
+            <%= top_5['total'] %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+</div>
