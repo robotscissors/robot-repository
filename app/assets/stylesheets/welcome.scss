@@ -23,3 +23,68 @@
 
   }
 }
+.total-chip {
+  background-color: #FF0000;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  font-size: 2rem;
+  color:#FFFFFF;
+  padding-top: 20px;
+}
+.user-total-chip {
+  background-color: #5cb85c;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  font-size: 1.9rem;
+  color:#FFFFFF;
+  padding-top: 20px;
+}
+.dashboard-number {
+  font-size: 6rem;
+}
+.user-info {
+  margin-top: 50px;
+  color: #ffffff;
+  text-align: left;
+  margin-left:50px;
+}
+.dashboard-user {
+  color: #FFD94C;
+  font-size: 1.5rem;
+}
+.user-image {
+  text-align: center;
+}
+.activity-title {
+  width:70%;
+}
+.activity-user {
+  width:30%;
+}
+.top-contributors-title {
+  text-align: center;
+  margin-top:10px;
+}
+
+@media (max-width: 1200px) {
+  .user-info {
+    margin-top: 28px;
+    margin-bottom: 50px;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 0px;
+  }
+  .user-image {
+    text-align: center;
+  }
+  .total-chip,.user-total-chip {
+    width:auto;
+  }
+
+  .top-contributors-title {
+    text-align: center;
+    margin-top:30px;
+  }
+}

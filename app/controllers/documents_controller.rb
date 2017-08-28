@@ -25,6 +25,7 @@ class DocumentsController < ApplicationController
       #S3Cleanup.execute(@document)
       flash[:notice] = "Document upload is complete!"
       puts "Success"
+      Document.reindex
       redirect_to documents_path
     else
       flash[:alert] = "There was an error saving the document. Please try again."
