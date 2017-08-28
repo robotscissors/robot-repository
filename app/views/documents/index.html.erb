@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container margin-after-50">
   <!-- <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a> -->
   <div class="pull-right">
     <%= form_tag(documents_path, :method => "get", id: "search-form") do %>
@@ -6,7 +6,7 @@
       <%= submit_tag "Search", :name => nil, :class => 'btn btn-success' %>
     <% end %>
   </div>
-  <h2>Library</h2>
+  <h2 class="page-title">LIBRARY</h2>
   <% if @documents.count > 0 %>
     <span class="pull-right"><%= "#{@results} Results Found." %></span>
     <span class="pull-right"></span>
@@ -16,13 +16,13 @@
       </tr>
       <% @documents.each do |document| %>
         <tr>
-          <td colspan="3"><span class="upload-main-info"><strong><%= link_to truncate(document.title, length: 40, separator: ' ... '), document %></strong> | <%= truncate(document.description, length: 50, separator: ' ... ') %> <span class="upload-info">[ <%= document.created_at.localtime.strftime('%c') %> ]</span></span><br />
+          <td colspan="3"><span class="upload-main-info"><strong><%= link_to truncate(document.title, length: 60, separator: ' ... '), document %></strong> &nbsp;&nbsp;&nbsp;<span class="upload-info">[ <%= document.created_at.localtime.strftime('%c') %> ]</span></span><br />
             <small><%= link_to truncate(document.file_full_text, length: 550, separator: ' ... more '), document %></small>
           </td>
         </tr>
       <% end %>
     </table>
   <% else %>
-    <h4>There are no results found.</h4>
+    <h3>There are no results found.</h3>
   <% end %>
 </div>

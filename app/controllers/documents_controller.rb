@@ -17,16 +17,13 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    #call class
-
     @document = current_user.documents.build(document_params)
-
     if @document.save
       #S3Cleanup.execute(@document)
       flash[:notice] = "Document upload is complete!"
       puts "Success"
       Document.reindex
-      redirect_to documents_path
+      redirect_to root_path
     else
       flash[:alert] = "There was an error saving the document. Please try again."
       puts "There is an error"

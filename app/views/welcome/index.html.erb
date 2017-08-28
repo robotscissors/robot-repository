@@ -1,5 +1,5 @@
 <div class="container margin-after-50">
-  <h1 class="page-title">DASHBOARD</h1>
+  <h2 class="page-title">DASHBOARD</h2>
   <div class="row">
     <div class="col-md-3 user-image">
       <img src="/assets/user-image.png">
@@ -34,7 +34,7 @@
         <% @last_5_uploaded_documents.each do |last_5| %>
           <tr>
             <td>
-              <%= last_5.title %>
+              <%= link_to last_5.title, document_path(last_5) %>
             </td>
             <td>
               <%= last_5.user['fullname'] %>
