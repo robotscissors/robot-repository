@@ -20,6 +20,7 @@ class DocumentsController < ApplicationController
     @document = current_user.documents.build(document_params)
     if @document.save
       #S3Cleanup.execute(@document)
+      Notification.new_document(@document).deliver_now
       flash[:notice] = "Document upload is complete!"
       puts "Success"
       Document.reindex
