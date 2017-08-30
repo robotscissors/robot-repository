@@ -1,8 +1,7 @@
 class UserAdminController < ApplicationController
-  include Pundit
 
   def index
-      @users = User.all
+      @users = User.all.page params[:page]
   end
 
   def edit

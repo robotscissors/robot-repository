@@ -1,6 +1,7 @@
 <div class="container  margin-after-50">
   <h2 class="page-title">AUTHORIZED USERS</h2>
   Total number of users: <%= @users.count %>
+  <span class="pull-right"><%= paginate @users %></span>
   <table class = "table table-striped">
     <thead>
       <tr>
