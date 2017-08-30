@@ -1,7 +1,7 @@
 class UserAdminController < ApplicationController
 
   def index
-      @users = User.all.page params[:page]
+      @users = User.all
   end
 
   def edit

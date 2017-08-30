@@ -8,6 +8,4 @@ class User < ActiveRecord::Base
   before_save { self.role ||= :standard }
   enum role: [:standard,:admin]
 
-  paginates_per 10
-
 end
