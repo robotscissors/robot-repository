@@ -31,8 +31,6 @@ p {
   color: #EAEAEA;
 }
 
-
-
 .navbar-default .navbar-nav > li > a {
   color: #CCCCCC;
   &:hover {
@@ -52,6 +50,10 @@ a {
   &:hover {
     color: #FFD94C;
   }
+}
+
+.space-after-page-100 {
+  margin-bottom: 100px;
 }
 
 .navbar-brand {

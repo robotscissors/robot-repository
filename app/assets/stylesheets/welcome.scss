@@ -1,6 +1,21 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero-content {
+  position: relative; /* positioning will be explained in a resource */
+  min-height: 600px;  /* hero content element must be _at least_ 600 pixels */
+  background-image: url(/assets/people-at-work.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.hero-text {
+  margin-top: 60px;
+}
+
+
 .standard-button{
   width:110px;
   margin-top: 30px;
@@ -20,7 +35,9 @@
   p {
     text-align:justify;
     padding:15px 28px 20px 28px;
-
+  }
+  img {
+    width: 100%;
   }
 }
 .total-chip {

@@ -1,31 +1,42 @@
-<div class="row">
-  <div class="col-md-5">
-  <div class="well well-lg">
-    <h1>About Robot Repository</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pharetra est. Nulla sit amet consectetur odio. Ut sem neque, ornare in sodales a, eleifend et massa. Vestibulum dapibus feugiat nulla ut mollis. Quisque sodales nisl at felis efficitur ultrices. Maecenas sodales non metus id sagittis. Phasellus tincidunt, quam suscipit pellentesque posuere, massa ligula consequat neque, a fringilla turpis nisl ac sem. Donec nec purus vel velit vulputate congue ut non tortor.</p>
-    <div class="welcome-buttons">
-      <%= link_to "Login", user_session_path, class: "btn btn-success standard-button" %>
-      <%= link_to "Register", new_user_registration_path, class: "btn btn-primary standard-button" %>
+<div class="hero-content">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+    <div class="well well-lg hero-text">
+      <h1>About the Repository</h1>
+      <p>Built for busy offices and groups with high-volumes of digital documents. This engine makes it easy to upload Microsoft Word Documents and PDFs. They are instantly stored, stripped and ready to retrieve at any time.  </p>
+      <p>This enterprise application will notify teams when new documents have been uploaded allowing everyone to keep in touch and aware of new assets.
+      <div class="welcome-buttons">
+        <%= link_to "Login", user_session_path, class: "btn btn-success standard-button" %>
+        <%= link_to "Register", new_user_registration_path, class: "btn btn-primary standard-button" %>
+      </div>
     </div>
-  </div>
-  </div>
-  <div class="col-md-6 col-md-offset-1">
-    <%= image_tag("fpo-image-about.jpg") %>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+    </div>
   </div>
 </div>
 <div class="page-spacer">
 </div>
-<div class="row">
+<div class="row space-after-page-100">
   <div class="col-md-4 proof-point">
-    <%= image_tag("fpo-proofpoint-image-about.jpg") %>
+    <div class="main_icon">
+      <%= image_tag("library-icon.png") %>
+    </div>
+    <h2>Full Access</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pharetra est. Maecenas sodales non metus id sagittis. Phasellus tincidunt, quam suscipit pellentesque posuere, massa ligula consequat neque, a fringilla turpis nisl ac sem.</p>
   </div>
   <div class="col-md-4 proof-point">
-    <%= image_tag("fpo-proofpoint-image-about.jpg") %>
+    <div class="main_icon">
+      <%= image_tag("document-type-icon.png") %>
+    </div>
+    <h2>Support File Types</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pharetra est. Maecenas sodales non metus id sagittis. Phasellus tincidunt, quam suscipit pellentesque posuere, massa ligula consequat neque, a fringilla turpis nisl ac sem.</p>
   </div>
   <div class="col-md-4 proof-point">
-    <%= image_tag("fpo-proofpoint-image-about.jpg") %>
+    <div class="main_icon">
+      <%= image_tag("team-work-icon.png") %>
+    </div>
+      <h2>Team Notifications</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec pharetra est. Maecenas sodales non metus id sagittis. Phasellus tincidunt, quam suscipit pellentesque posuere, massa ligula consequat neque, a fringilla turpis nisl ac sem.</p>
   </div>
 </div>
