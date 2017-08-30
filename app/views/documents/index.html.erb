@@ -9,7 +9,7 @@
   <h2 class="page-title">LIBRARY</h2>
   <% if @documents.count > 0 %>
     <span class="pull-right"><%= "#{@results} Results Found." %></span>
-    <span class="pull-right"></span>
+    <span class="pull-right"><%= paginate @documents %></span>
     <table class = "table table-striped padding-before-table margin-before-50">
       <tr>
         <th colspan="3">List of Documents</th>
@@ -22,6 +22,7 @@
         </tr>
       <% end %>
     </table>
+    <span class="pull-right"><%= paginate @documents %></span>
   <% else %>
     <h3>There are no results found.</h3>
   <% end %>
