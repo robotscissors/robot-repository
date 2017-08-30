@@ -1,5 +1,4 @@
 class UserAdminController < ApplicationController
-  include Pundit
 
   def index
       @users = User.all
