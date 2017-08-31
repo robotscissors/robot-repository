@@ -19,7 +19,6 @@ class DocumentsController < ApplicationController
   def create
     @document = current_user.documents.build(document_params)
     if @document.save
-      #S3Cleanup.execute(@document)
       Notification.new_document(@document).deliver_now
       flash[:notice] = "Document upload is complete!"
       puts "Success"
@@ -72,7 +71,6 @@ class DocumentsController < ApplicationController
   end
 
   private
-  # Using a private method to encapsulate the permissible parameters
   def document_params
     params.require(:document).permit(:title, :description, :keywords, :document_file)
   end

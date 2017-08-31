@@ -4,7 +4,7 @@
 
 .hero-content {
   position: relative; /* positioning will be explained in a resource */
-  min-height: 600px;  /* hero content element must be _at least_ 600 pixels */
+  min-height: 500px;  /* hero content element must be _at least_ 600 pixels */
   background-image: url(/assets/people-at-work.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -17,7 +17,7 @@
 .hero-title {
   color: #ffffff;
   text-align: center;
-  
+
 }
 
 .standard-button{
