@@ -1,11 +1,10 @@
 class DocumentsController < ApplicationController
+
   def index
     @search_query = params[:search].present? ? params[:search] : nil
     if @search_query
-      #@documents = Document.search(search_query).page(params[:page])
       @documents = Document.search params[:search], page: params[:page], per_page: 10
     else
-      #@documents = Document.all.order(created_at: :desc).page(params[:page]).per(10)
       @documents = Document.search page: params[:page], per_page: 10, order: {created_at: :desc}
     end
     @results = @documents.total_count
@@ -13,7 +12,6 @@ class DocumentsController < ApplicationController
 
   def new
     @document = Document.new
-    puts "bucket: #{ENV['AWS_S3_BUCKET_NAME']}"
   end
 
   def create
