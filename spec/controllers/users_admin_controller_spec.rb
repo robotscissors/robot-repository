@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe UserAdminController, type: :controller do
 
-  let(:user) { User.create!(fullname: "Example User", email: "user@example.com",
-                 password: "foobar", password_confirmation: "foobar")}
+  # let(:user) { User.create!(fullname: "Example User", email: "user@example.com",
+  #                password: "foobar", password_confirmation: "foobar")}
+  user = FactoryGirl.create(:user)
 
   describe "GET index" do
      it "renders the index template when logged in" do
@@ -11,6 +12,12 @@ RSpec.describe UserAdminController, type: :controller do
        sign_in user
        get :index
        expect(response).to render_template("user_admin/index")
+     end
+
+     it "renders the login page when user not logged in" do
+       user.confirm
+       get :index
+       expect(response).to redirect_to :action => :new, :controller => "devise/sessions"
      end
    end
 
