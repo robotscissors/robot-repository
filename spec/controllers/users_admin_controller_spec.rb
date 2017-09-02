@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe UserAdminController, type: :controller do
 
-  # let(:user) { User.create!(fullname: "Example User", email: "user@example.com",
-  #                password: "foobar", password_confirmation: "foobar")}
   user = FactoryGirl.create(:user)
 
   describe "GET index" do
