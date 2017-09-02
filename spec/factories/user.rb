@@ -3,7 +3,6 @@ FactoryGirl.define do
 
    factory :user do
      fullname RandomData.random_name
-     #sequence(:email){|n| "user#{n}@factory.com" }
      email RandomData.random_email
      password pw
      password_confirmation pw
