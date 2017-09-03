@@ -18,7 +18,4 @@ class WelcomeController < ApplicationController
         .limit(5)
     end
   end
-
-  def about
-  end
 end

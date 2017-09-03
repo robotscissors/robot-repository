@@ -1,5 +1,4 @@
 <div class="container margin-after-50">
-  <!-- <a href="documents/new" class="navbar-btn btn-success btn pull-right"><span class="glyphicon glyphicon-star"></span>  Upload New Document</a> -->
   <div class="pull-right">
     <%= form_tag(documents_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], autocomplete: :off, placeholder: "Search Respository", :class => "search", :autofocus => true %>
@@ -27,5 +26,6 @@
     <span class="pull-right"><%= paginate @documents %></span>
   <% else %>
     <h3>There are no results found.</h3>
+    <p> To get started, <%= link_to "upload a document", new_document_path %>!</p>
   <% end %>
 </div>
