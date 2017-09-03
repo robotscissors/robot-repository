@@ -39,11 +39,11 @@ class UserAdminController < ApplicationController
       flash[:alert] = "You can't delete yourself!!"
       redirect_to action: "index"
     elsif @user.destroy
-         flash[:notice] = "\"#{@user.fullname}\" was deleted successfully."
-         redirect_to action: "index"
+      flash[:notice] = "\"#{@user.fullname}\" was deleted successfully."
+      redirect_to action: "index"
     else
-         flash[:alert] = "There was an error deleting the user."
-         redirect_to action: "index"
+      flash[:alert] = "There was an error deleting the user."
+      redirect_to action: "index"
     end
   end
 end

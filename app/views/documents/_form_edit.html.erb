@@ -1,8 +1,7 @@
 <%= form_for document, html: { multipart: true }  do |f| %>
 <div class="jumbotron col-md-12">
   <div class="col-md-12">
-    <p class="form-paragraph">You can edit the meta data using the form below.</p>
-
+    <p class="form-paragraph">You can edit the metadata using the form below.</p>
   </div>
   <div class="col-md-5">
     <% if document.errors.any? %>
@@ -21,7 +20,6 @@
     <%= form_group_tag(document.errors[:description]) do %>
       <strong> Description </strong> <%= f.text_area :description, cols: 30, rows: 5, class: 'form-control', placeholder: "Enter document title (min. 20 characters)" %>
     <% end %>
-
   </div>
   <div class="col-md-offset-2 col-md-5">
     <%= form_group_tag(document.errors[:keywords]) do %>
@@ -40,7 +38,6 @@
     <br />
     <h3>Preview</h3>
     <p class="preview-text"><%= "#{truncate(@document.file_full_text, :length => 1000)}" %></p>
-
   </div>
 </div>
 <% end %>

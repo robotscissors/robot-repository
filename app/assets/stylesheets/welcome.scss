@@ -5,7 +5,7 @@
 .hero-content {
   position: relative; /* positioning will be explained in a resource */
   min-height: 500px;  /* hero content element must be _at least_ 600 pixels */
-  background-image: url(/assets/people-at-work.png);
+  background-image: url(/assets/hero-at-work.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -14,20 +14,22 @@
 .hero-text {
   margin-top: 60px;
 }
+
 .hero-title {
   color: #ffffff;
   text-align: center;
-
 }
 
 .standard-button{
   width:110px;
   margin-top: 30px;
 }
+
 .welcome-buttons {
   margin: 0 auto;
   text-align: center;
 }
+
 .page-spacer{
   content: "";
   clear: both;
@@ -40,10 +42,12 @@
     text-align:justify;
     padding:15px 28px 20px 28px;
   }
+
   img {
     width: 100%;
   }
 }
+
 .total-chip {
   background-color: #FF0000;
   height: 200px;
@@ -53,6 +57,7 @@
   color:#FFFFFF;
   padding-top: 20px;
 }
+
 .user-total-chip {
   background-color: #5cb85c;
   height: 200px;
@@ -62,40 +67,50 @@
   color:#FFFFFF;
   padding-top: 20px;
 }
+
 .dashboard-number {
   font-size: 6rem;
 }
+
 .dashboard {
   margin-left: 41px;
   margin-bottom: 24px;
 }
+
 .user-info {
   margin-top: 50px;
   color: #ffffff;
   text-align: left;
   margin-left:50px;
 }
+
 .dashboard-user {
   color: #FFD94C;
   font-size: 1.5rem;
 }
+
 .user-image {
   text-align: center;
 }
+
 .activity-title {
   width:70%;
 }
+
 .activity-user {
   width:30%;
 }
+
 .top-contributors-title {
   text-align: center;
   margin-top:10px;
 }
+
 .upload-image{
   img{
     height:200px;
   }
+
   text-align: center;
 }
 
@@ -107,9 +122,11 @@
     text-align: center;
     margin-left: 0px;
   }
+
   .user-image {
     text-align: center;
   }
+
   .total-chip,.user-total-chip {
     width:auto;
   }

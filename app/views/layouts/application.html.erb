@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Document Repository</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Document Repository</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "ROBOT Repository", root_path, class: "navbar-brand" %>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <% if user_signed_in? %>
+          <ul class="nav navbar-nav">
 
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "ROBOT Repository", root_path, class: "navbar-brand" %>
+            <li><%= link_to "Library", documents_path %></li>
+            <li><%= link_to "Document Upload", new_document_path %></li>
+            <li><%= link_to "User Admin", user_admin_index_path %></li>
+          </ul>
+          <ul class="navbar-nav-userstate navbar-right">
+            <%= link_to current_user.fullname, edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </ul>
+          <% else %>
+          <ul class="navbar-nav-userstate navbar-right">
+            <%= link_to "Register", new_user_registration_path %> -
+            <%= link_to "Login", new_user_session_path %>
+          </ul>
+          <% end %>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </nav>
+    <div class="container">
+      <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+      <%= yield %>
+      </div>
+      <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text pull-left">© 2017 - Site Built By RobotScissors</p>
         <% if user_signed_in? %>
-        <ul class="nav navbar-nav">
-
-          <li><%= link_to "Library", documents_path %></li>
-          <li><%= link_to "Document Upload", new_document_path %></li>
-          <li><%= link_to "User Admin", user_admin_index_path %></li>
-        </ul>
-        <ul class="navbar-nav-userstate navbar-right">
-          <%= link_to current_user.fullname, edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </ul>
-        <% else %>
-        <ul class="navbar-nav-userstate navbar-right">
-          <%= link_to "Register", new_user_registration_path %> -
-          <%= link_to "Login", new_user_session_path %>
-        </ul>
+          <%= link_to new_document_path, class: "navbar-btn btn-success btn pull-right" do %>
+            <span class="glyphicon glyphicon-star"></span> Upload New Document
+          <% end %>
         <% end %>
       </div>
-    </div>
-  </nav>
-
-  <div class="container">
-    <% if flash[:notice] %>
-        <div class="alert alert-success">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:notice] %>
-        </div>
-      <% elsif flash[:alert] %>
-        <div class="alert alert-danger">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:alert] %>
-        </div>
-      <% end %>
-    <%= yield %>
-    </div>
-    <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text pull-left">© 2017 - Site Built By RobotScissors</p>
-      <% if user_signed_in? %>
-        <%= link_to new_document_path, class: "navbar-btn btn-success btn pull-right" do %>
-          <span class="glyphicon glyphicon-star"></span> Upload New Document
-        <% end %>
-      <% end %>
-    </div>
-
-</body>
+  </body>
 </html>

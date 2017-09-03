@@ -8,7 +8,10 @@
       <div class="dashboard-user"><%= current_user.fullname %></div>
       <%= current_user.email %> <br />
       Last login: <%= current_user.last_sign_in_at.localtime.strftime('%c') %><br />
-      View last document uploaded: <%= link_to "click here", document_path(@last_document) %><br />
+      <% if @last_document %>
+       View last document uploaded: <%= link_to "click here", document_path(@last_document) %>
+      <% end %>
+      <br />
       <br />
       <%= link_to "Edit Your Profile", edit_user_registration_path %> | <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </div>

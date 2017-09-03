@@ -59,15 +59,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: Document.search(params[:query], {
-      match: :word_start,
-      limit: 10,
-      load: false,
-      misspellings: {below: 5}
-    }).map(&:title)
-  end
-
   private
   def document_params
     params.require(:document).permit(:title, :description, :keywords, :document_file)
