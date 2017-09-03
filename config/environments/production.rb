@@ -89,7 +89,7 @@ Rails.application.configure do
     }
 
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'dry-island-95153.herokuapp.com' }
 
   #paperclip S3
   config.paperclip_defaults = {
