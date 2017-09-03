@@ -28,6 +28,7 @@ gem 'docsplit-paperclip-processor', '0.2.2'
 gem 'paperclip-ghostscript'
 gem 'cocaine','0.5.3'
 gem 'searchkick'
+gem 'bonsai-elasticsearch-rails'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
