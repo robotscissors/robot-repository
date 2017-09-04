@@ -15,7 +15,8 @@ class Document < ActiveRecord::Base
   #                       :full_text_column => :file_full_text
   #                     }
   #                   }
-  has_attached_file :document_file, :path => "/documents/:id/:filename", :preserve_files => "true".:styles => {
+  has_attached_file :document_file, :path => "/documents/:id/:filename", :preserve_files => "true",
+                    :styles => {
                       :text => {
                         :processors => [:docsplit_text],
                         :format => "txt"
