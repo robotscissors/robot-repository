@@ -17,30 +17,30 @@ require 'random_data'
 @testUser.skip_confirmation!
 @testUser.save!
 
-10.times do
-  @pass = Faker::Internet.password(8)
-  @role = RandomData.random_role
-  user = User.new(
-    fullname: Faker::Name.name,
-    email:  Faker::Internet.email,
-    #encrypted_password:   Faker::Internet.password(8)
-    password: @pass,
-    password_confirmation: @pass,
-    role: @role
-  )
-  user.skip_confirmation!
-  user.save!
-end
-users = User.all
-
-10.times do
-  @title = Faker::Lorem.sentence(3, false, 4)
-  @description = Faker::Lorem.sentence(10, false, 12)
-  @keywords = Faker::Lorem.sentence(3, false, 8)
-  @document = Document.new(title: @title, description: @description, keywords: @keywords, user: users.sample)
-  @document.save!
-end
+# 10.times do
+#   @pass = Faker::Internet.password(8)
+#   @role = RandomData.random_role
+#   user = User.new(
+#     fullname: Faker::Name.name,
+#     email:  Faker::Internet.email,
+#     #encrypted_password:   Faker::Internet.password(8)
+#     password: @pass,
+#     password_confirmation: @pass,
+#     role: @role
+#   )
+#   user.skip_confirmation!
+#   user.save!
+# end
+# users = User.all
+#
+# 10.times do
+#   @title = Faker::Lorem.sentence(3, false, 4)
+#   @description = Faker::Lorem.sentence(10, false, 12)
+#   @keywords = Faker::Lorem.sentence(3, false, 8)
+#   @document = Document.new(title: @title, description: @description, keywords: @keywords, user: users.sample)
+#   @document.save!
+# end
 
 puts "Seed finished"
 puts "#{User.count} Users created"
-puts "#{Document.count} Documents created"
+# puts "#{Document.count} Documents created"
