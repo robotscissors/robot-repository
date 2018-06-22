@@ -12,32 +12,33 @@ More on the proof of concept side, this web application is designed to be spun-u
 ![robot-dashboard](https://user-images.githubusercontent.com/24664863/41758193-f76a9cd8-759b-11e8-826f-9ad196d58015.jpg)
 
 ## Gem Dependencies
-'sass-rails', '~> 5.0'
-'uglifier', '>= 1.3.0'
-'coffee-rails', '~> 4.1.0'
-'jquery-rails'
-'turbolinks'
-'bootstrap-sass'
-'figaro'
-'devise'
-'aws-sdk', '< 2.0'
-'paperclip'
-'docsplit-paperclip-processor', '0.2.2'
-'paperclip-ghostscript'
-'cocaine','0.5.3'
-'searchkick'
-'bonsai-elasticsearch-rails'
-'kaminari'
-'bootstrap-kaminari-views'
 
-Development:
-sqlite3
-byebug
-spring
-shoulda
+`sass-rails, ~> 5.0`<br />
+`uglifier, >= 1.3.0`<br />
+`coffee-rails, ~> 4.1.0`<br />
+`jquery-rails`<br />
+`turbolinks`<br />
+`bootstrap-sass`<br />
+`figaro`<br />
+`devise`<br />
+`aws-sdk, < 2.0`<br />
+`paperclip`<br />
+`docsplit-paperclip-processor, 0.2.2`<br />
+`paperclip-ghostscript`<br />
+`cocaine,0.5.3`<br />
+`searchkick`<br />
+`bonsai-elasticsearch-rails`<br />
+`kaminari`<br />
+`bootstrap-kaminari-views`<br />
 
-Production:
-pg
-rails_12factor
+Development:<br />
+sqlite3<br />
+byebug<br />
+spring<br />
+shoulda<br />
+
+Production:<br />
+pg<br />
+rails_12factor<br />
 
 Keep in mind that this is only a proof of concept. Connections to AWS and mailservers need to be documented fully.
